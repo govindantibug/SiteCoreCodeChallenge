@@ -27,7 +27,7 @@ public class Solution {
     /** main function Will run the code with "GRAPH" that was defined above. */
     public static void main(String[] args) {
         Graph g = new Graph(GRAPH);
-
+        System.out.println("enter the source and destination in SSS - DDD format");
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
         System.out.println(input);
@@ -78,7 +78,8 @@ class Graph {
             if (this == this.previous) {
 
             } else if (this.previous == null) {
-                System.out.printf("%s(unreached)", this.name);
+                System.out.printf("destination cannot be reached from %s", this.name);
+                System.out.println();
             }
 //            else if(this.name == destination ) {
 //
@@ -204,7 +205,8 @@ class Graph {
         }
 
         graph.get(endName).printPath();
-        System.out.println("Time :"+graph.get(endName).dist);
+        if (+graph.get(endName).dist != Integer.MAX_VALUE)
+            System.out.println("Time :"+graph.get(endName).dist);
     }
 
 
